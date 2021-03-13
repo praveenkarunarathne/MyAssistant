@@ -1,7 +1,9 @@
 {
     "name": "My Assistant Bot",
     "description": "A bot that can manage your works.",
-    "repository": "https://github.com/praveen28624/url"
+    "success_url": "https://telegram.dog/AnyDLBot",
+    "website": "https://github.com/praveen28624/url",
+    "repository": "https://github.com/praveen28624/url",
     "buildpacks": [
         {
             "url": "heroku/python"
