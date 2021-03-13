@@ -1,0 +1,17 @@
+{
+    "name": "My Assistant Bot",
+    "description": "A bot that can manage your works.",
+    "logo": "https://telegra.ph/file/8628d61832f59ac0e3d4c.jpg",
+    "repository": "https://github.com/ImJanindu/File-Renamer-Bot"
+    "buildpacks": [
+        {
+            "url": "heroku/python"
+        }
+    ],
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "free"
+        }
+    }
+}
