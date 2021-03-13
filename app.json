@@ -1,7 +1,7 @@
 {
     "name": "My Assistant Bot",
     "description": "A bot that can manage your works.",
-    "success_url": "https://telegram.dog/AnyDLBot",
+    "success_url": "https://t.me/urplobot",
     "website": "https://github.com/praveen28624/url",
     "repository": "https://github.com/praveen28624/url",
     "buildpacks": [
