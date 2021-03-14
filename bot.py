@@ -2,6 +2,11 @@ from pyrogram import Client,filters
 import os
 from google_trans_new import google_translator  
 
+import logging
+logging.basicConfig(level=logging.DEBUG,
+                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
+logging.getLogger("pyrogram").setLevel(logging.WARNING)
 translator = google_translator()  
 
 app_id=2940667
