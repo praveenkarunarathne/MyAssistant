@@ -1,5 +1,9 @@
 from pyrogram import Client,filters
 import os
+from google_trans_new import google_translator  
+
+translator = google_translator()  
+
 app_id=2940667
 api_hash="8590c88aca3638eb321979577ddb53d3"
 id=869979136
@@ -15,5 +19,6 @@ def echo(client, message):
 def bot(client,message):
   d=open("uid.txt","r")
   uid=d.read()
-  app.send_message(int(uid), message.text)
+  b= translator.translate(message.text,lang_tgt='si')  
+  app.send_message(int(uid), b)
 app.run()
