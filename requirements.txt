@@ -1,2 +1,3 @@
 pyrogram
 tgcrypto
+google_trans_new
