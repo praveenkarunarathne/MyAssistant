@@ -1,12 +1,9 @@
 from pyrogram import Client,filters
 import os
 from google_trans_new import google_translator  
-
-import logging
-logging.basicConfig(level=logging.DEBUG,
-                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-logger = logging.getLogger(__name__)
-logging.getLogger("pyrogram").setLevel(logging.WARNING)
+from coffeehouse.lydia import LydiaAI
+api_key = "2126a19291cc677696b3e5cde16cc5d54986c64a7c2ef596e593a8d22679383cef91d521d1a82864ab48086f3f8c6a0e9849cf08581c2e5f7e377b518dc68573"
+lydia = LydiaAI(api_key)
 translator = google_translator()  
 
 app_id=2940667
@@ -16,14 +13,30 @@ session_string ="BQBNf_r3IA5tLXdceJAc6qgbx5dKVyuismn8RMdqvbCo0wEr87lNw5ORvxSocM9
 app = Client(session_string,app_id,api_hash)
 @app.on_message(filters.text & filters.private & ~filters.bot & ~filters.user(users=[id,1407800946]))
 def echo(client, message):
-  f = open("uid.txt", "w")
-  f.write(str(message.from_user["id"]))
-  f.close()
-  message.forward(id)
-@app.on_message(filters.text & filters.user(users=id))
-def bot(client,message):
   d=open("uid.txt","r")
   uid=d.read()
-  b= translator.translate(message.text,lang_tgt='si')  
-  app.send_message(int(uid), b)
+  if message.from_user["id"]==uid:
+    e = open("uid.txt","r")
+    sid = e.read()
+    b = lydia.get_session(sid)
+    if b.available=="True":
+      output = b.think_thought(message.text)
+      b= translator.translate(output,lang_tgt='si')
+      message.reply_text(b)
+    else:
+      session = lydia.create_session()
+      output = session.think_thought(message.text)
+      b= translator.translate(output,lang_tgt='si')
+      message.reply_text(b)
+      g = open("sid.txt", "w")
+      g.write(str(session.id))
+      g.close()
+  else:
+    session = lydia.create_session()
+    output = session.think_thought(message.text)
+    b= translator.translate(output,lang_tgt='si')
+    message.reply_text(b)
+    f = open("sid.txt", "w")
+    f.write(str(session.id))
+    f.close()
 app.run()
