@@ -16,8 +16,8 @@ def echo(client, message):
   r = open("uid.txt", "a")
   r.close()
   d=open("uid.txt","r")
-  uid=int(d.read())
-  c=int(message.from_user["id"])
+  uid=str(d.read())
+  c=str(message.from_user["id"])
   if c==uid:
     x = open("sid.txt", "a")
     x.close()
