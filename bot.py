@@ -14,10 +14,14 @@ app = Client(session_string,app_id,api_hash)
 @app.on_message(filters.text & filters.private & ~filters.bot & ~filters.user(users=[id,1407800946]))
 def echo(client, message):
   message.reply_chat_action("typing")
+  r = open("uid.txt", "a")
+  r.close()
   d=open("uid.txt","r")
   uid=d.read()
   if message.from_user["id"]==uid:
-    e = open("uid.txt","r")
+    x = open("sid.txt", "a")
+    x.close()
+    e = open("sid.txt","r")
     sid = e.read()
     b = lydia.get_session(sid)
     if b.available=="True":
