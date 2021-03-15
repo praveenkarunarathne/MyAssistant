@@ -16,14 +16,16 @@ def echo(client, message):
   r = open("uid.txt", "a")
   r.close()
   d=open("uid.txt","r")
-  uid=d.read()
-  if message.from_user["id"]==uid:
+  uid=int(d.read())
+  c=int(message.from_user["id"])
+  if c==uid:
     x = open("sid.txt", "a")
     x.close()
     e = open("sid.txt","r")
     sid = e.read()
     b = lydia.get_session(sid)
-    if b.available=="True":
+    m=str(b.available)
+    if m=="True":
       output = b.think_thought(message.text)
       b= translator.translate(output,lang_tgt='si')
       message.reply_text(b)
