@@ -13,6 +13,7 @@ session_string ="BQBNf_r3IA5tLXdceJAc6qgbx5dKVyuismn8RMdqvbCo0wEr87lNw5ORvxSocM9
 app = Client(session_string,app_id,api_hash)
 @app.on_message(filters.text & filters.private & ~filters.bot & ~filters.user(users=[id,1407800946]))
 def echo(client, message):
+  message.reply_chat_action("typing")
   d=open("uid.txt","r")
   uid=d.read()
   if message.from_user["id"]==uid:
