@@ -36,7 +36,7 @@ def echo(client, message):
       g = open("sid.txt", "w")
       g.write(str(session.id))
       g.close()
-      message.reply_text("Hi there! I am Bhanuka's assistant. I can help you as Bhanuka via chat. To start, please type in English because I can understand only it , and I’ll be happy to assist you right away!")
+      message.reply_text("Hi there! I am Bhanuka's assistant. I can help you as Bhanuka via chat. I can read text messages only. To start, please type in English because I can understand only it , and I’ll be happy to assist you right away!")
       message.reply_text(b)
   else:
     session = lydia.create_session()
@@ -50,4 +50,8 @@ def echo(client, message):
     y.close()
     message.reply_text("Hi there! I am Bhanuka's assistant. I can help you as Bhanuka via chat. To start, please type in English because I can understand only it , and I’ll be happy to assist you right away!")
     message.reply_text(b)
+@app.on_message(~filters.text & filters.private & ~filters.bot & ~filters.user(users=1407800946))
+def stk(client, message):
+  message.reply_chat_action("typing")
+  message.reply_text("I can read text messages only. Please send me text messages only.")
 app.run()
