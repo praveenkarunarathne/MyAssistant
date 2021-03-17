@@ -36,7 +36,7 @@ def echo(client, message):
       g = open("sid.txt", "w")
       g.write(str(session.id))
       g.close()
-      message.reply_text("Hi there! I am Bhanuka's assistant. I can help you as Bhanuka via chat. I can read text messages only. To start, please type in English because I can understand only it , and I’ll be happy to assist you right away!")
+      message.reply_text("ආයුබෝවන් ඔබට කොහොම ද? . මම භානුකගේ සහායිකාව වෙමි. මට ඔබට භානුක ලෙස චැට් හරහා උදව් කළ හැකිය. මට කෙටි පණිවිඩ පමණක් කියවිය හැකි අතර ආරම්භ කිරීමට, කරුණාකර ඉංග්‍රීසි භාෂාව පමණක් ටයිප් කරන්න, මන්ද මට එම භාෂාව පමණක් තේරුම් ගත හැකි අතර, ඔබට වහාම උදව් කිරීමට මම සතුටු වෙමි!")
       message.reply_text(b)
   else:
     session = lydia.create_session()
@@ -48,10 +48,10 @@ def echo(client, message):
     y = open("uid.txt","w")
     y.write(str(message.from_user["id"]))
     y.close()
-    message.reply_text("Hi there! I am Bhanuka's assistant. I can help you as Bhanuka via chat. To start, please type in English because I can understand only it , and I’ll be happy to assist you right away!")
+    message.reply_text("ආයුබෝවන් ඔබට කොහොම ද? . මම භානුකගේ සහායිකාව වෙමි. මට ඔබට භානුක ලෙස චැට් හරහා උදව් කළ හැකිය. මට කෙටි පණිවිඩ පමණක් කියවිය හැකි අතර ආරම්භ කිරීමට, කරුණාකර ඉංග්‍රීසි භාෂාව පමණක් ටයිප් කරන්න, මන්ද මට එම භාෂාව පමණක් තේරුම් ගත හැකි අතර, ඔබට වහාම උදව් කිරීමට මම සතුටු වෙමි!")
     message.reply_text(b)
 @app.on_message(~filters.text & filters.private & ~filters.bot & ~filters.user(users=1407800946))
 def stk(client, message):
   message.reply_chat_action("typing")
-  message.reply_text("I can read text messages only. Please send me text messages only.")
+  message.reply_text("මට කෙටි පණිවිඩ පමණක් කියවිය හැකිය. කරුණාකර මට කෙටි පණිවිඩ පමණක් එවන්න.")
 app.run()
