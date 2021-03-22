@@ -1,11 +1,16 @@
 {
    "name": "My Assistant",
    "description": "An Auto Replyer bot.",
+   "keywords": [
+    "My",
+    "Assistant",
+    "Bot"],
    "repository": "https://github.com/praveen28624/My-Assistant",
+   "logo": "https://small-sharp-tool.com/logo.svg",
    "buildpacks": [{
     "url": "heroku/python"
   }],
-  "formation": {
+   "formation": {
     "worker": {
       "quantity": 1,
       "size": "free"
