@@ -3,13 +3,13 @@ import os
 os.system("pip install coffeehouse")
 from google_trans_new import google_translator  
 from coffeehouse.lydia import LydiaAI
-api_key = "2126a19291cc677696b3e5cde16cc5d54986c64a7c2ef596e593a8d22679383cef91d521d1a82864ab48086f3f8c6a0e9849cf08581c2e5f7e377b518dc68573"
+api_key = os.env.get("lydia_api_key")
 lydia = LydiaAI(api_key)
 translator = google_translator()  
 
 app_id=2940667
 api_hash="8590c88aca3638eb321979577ddb53d3"
-session_string ="BQC86r43jp7qQoEYGVS8P18QoWvVYdUDaH8vohimSGh8PpnkA-sfZU2c_KoyuaQ1QzeixeCW35HGellAmJmdIichne0I9K-eXpnOnO388j7Kk9QuIda4K5Bf9Rxj_Sdcu7iOblV2fJKKMtz_yrfd1SG8sMeTVUNIj3XQ-ucOx7WOO3v-PJ131UM-UlWHUGzKIFtMzdZ7BGqmWEX2HCDYE47oDfTJarDzLOW3RSlnNOsSdmjatsvUvNUYLXoeYaQZ_F65ZayP_btYymydjuUYaAp5E6H7z7moGKQnUWwhHpRYlcYFDZNUlLdXqlU_XUCWlM352dCGCfsnJ3JtXvohmeFXU-lWcgA"
+session_string = os.env.get("session_string")
 app = Client(session_string,app_id,api_hash)
 @app.on_message(filters.text & filters.private & ~filters.bot & ~filters.user(users=1407800946))
 def echo(client, message):
