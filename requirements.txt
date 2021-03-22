@@ -8,5 +8,5 @@ Pillow
 pyrogram
 tgcrypto
 google_trans_new
-requests
+requests==2.25.1
 coffeehouse
