@@ -1,4 +1,4 @@
-![My-Assistant](https://telegra.ph/file/c29b03079941d69c19504.jpg)
+![My-Assistant](https://telegra.ph/file/3dc8ab85267ba245e921c.jpg)
 
 # My-Assistant
 
