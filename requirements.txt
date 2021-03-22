@@ -1,12 +1,4 @@
-aiohttp
-beautifulsoup4
-hachoir
-sqlalchemy
-psycopg2-binary
-numpy
-Pillow
 pyrogram
 tgcrypto
 google_trans_new
-requests==2.25.1
-git+https://github.com/intellivoid/CoffeeHouse-Python-API-Wrapper.git
+requests
