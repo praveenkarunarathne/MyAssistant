@@ -1,6 +1,6 @@
 ![My-Assistant](https://telegra.ph/file/3dc8ab85267ba245e921c.jpg)
 
-# My-Assistant
+# My Assistant
 
 Your Private Replyer
 
