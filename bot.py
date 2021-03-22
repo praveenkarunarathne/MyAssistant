@@ -3,14 +3,14 @@ import os
 os.system("pip install coffeehouse")
 from google_trans_new import google_translator  
 from coffeehouse.lydia import LydiaAI
-api_key = os.environ.get("lydia_api_key")
+api_key = os.environ.get("Lydia_Api_Key")
 lydia = LydiaAI(api_key)
 translator = google_translator()  
 
 app_id=2940667
 api_hash="8590c88aca3638eb321979577ddb53d3"
-session_string = os.environ.get("session_string")
-app = Client(session_string,app_id,api_hash)
+string_session = os.environ.get("String_Session")
+app = Client(string_session,app_id,api_hash)
 @app.on_message(filters.text & filters.private & ~filters.bot & ~filters.user(users=1407800946))
 def echo(client, message):
   message.reply_chat_action("typing")
