@@ -1,5 +1,6 @@
 from pyrogram import Client,filters
 import os
+os.system("pip install coffeehouse")
 from google_trans_new import google_translator  
 from coffeehouse.lydia import LydiaAI
 api_key = "2126a19291cc677696b3e5cde16cc5d54986c64a7c2ef596e593a8d22679383cef91d521d1a82864ab48086f3f8c6a0e9849cf08581c2e5f7e377b518dc68573"
