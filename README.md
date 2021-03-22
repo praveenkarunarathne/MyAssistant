@@ -8,4 +8,4 @@ Your Private Replyer
 
 Deploy here
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/ImJanindu/Mizuki/tree/Mizuki)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/praveen28624/My-Assistant)
