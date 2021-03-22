@@ -8,12 +8,12 @@
    "repository": "https://github.com/praveen28624/My-Assistant",
    "logo": "https://telegra.ph/file/3dc8ab85267ba245e921c.jpg",
    "env": {
-      "String_Session": {
+      "STRING_SESSION": {
          "description": "Pyrogram String Session",
          "required": true,
          "value": ""
       },
-      "Lydia_Api_Key": {
+      "LYDIA_API_KEY": {
          "description": "Coffeehouse Api Key",
          "required": true,
          "value": ""
