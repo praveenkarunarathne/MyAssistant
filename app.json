@@ -2,6 +2,13 @@
    "name": "My Assistant",
    "description": "An Auto Replyer bot.",
    "repository": "https://github.com/praveen28624/My-Assistant",
-   "addons": [],
-   "env": {}
+   "buildpacks": [{
+    "url": "heroku/python"
+  }],
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "free"
+    }
+  }
 }
