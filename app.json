@@ -8,7 +8,7 @@
    "repository": "https://github.com/praveen28624/My-Assistant",
    "logo": "https://telegra.ph/file/3dc8ab85267ba245e921c.jpg",
    "env": {
-      "Sting_Session": {
+      "String_Session": {
          "description": "Your bot token. Get one from @BotFather duh",
          "required": true,
          "value": ""
