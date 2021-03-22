@@ -1,3 +1,10 @@
+aiohttp
+beautifulsoup4
+hachoir
+sqlalchemy
+psycopg2-binary
+numpy
+Pillow
 pyrogram
 tgcrypto
 google_trans_new
