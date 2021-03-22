@@ -9,4 +9,4 @@ pyrogram
 tgcrypto
 google_trans_new
 requests==2.25.1
-coffeehouse==2.2.5
+git+https://github.com/intellivoid/CoffeeHouse-Python-API-Wrapper.git
