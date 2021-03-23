@@ -3,14 +3,13 @@ import os
 os.system("pip install coffeehouse")
 from google_trans_new import google_translator  
 from coffeehouse.lydia import LydiaAI
-from config import Config
 
 api_key = os.environ.get("LYDIA_API_KEY")
 lydia = LydiaAI(api_key)
 translator = google_translator()  
 
 app_id=int(os.environ.get("APP_ID"))
-api_hash=os.environ.get("")
+api_hash=os.environ.get("API_HASH")
 mid=os.environ.get("USER_ID")
 string_session = os.environ.get("STRING_SESSION")
 name = os.environ.get("NAME")
