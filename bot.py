@@ -7,11 +7,12 @@ api_key = os.environ.get("LYDIA_API_KEY")
 lydia = LydiaAI(api_key)
 translator = google_translator()  
 
-app_id=2940667
-api_hash="8590c88aca3638eb321979577ddb53d3"
+app_id=int(os.environ.get("APP_ID"))
+api_hash=os.environ.get("API_HASH")
+mid=os.environ.get("USER_ID")
 string_session = os.environ.get("STRING_SESSION")
 app = Client(string_session,app_id,api_hash)
-@app.on_message(filters.text & filters.private & ~filters.bot & ~filters.user(users=1407800946))
+@app.on_message(filters.text & filters.private & ~filters.bot & ~filters.user(users=mid))
 def echo(client, message):
   message.reply_chat_action("typing")
   r = open("uid.txt", "a")
@@ -51,7 +52,7 @@ def echo(client, message):
     y.close()
     message.reply_text("ආයුබෝවන් ඔබට කොහොම ද? . මම භානුකගේ සහායිකාව වෙමි. මට ඔබට භානුක ලෙස චැට් හරහා උදව් කළ හැකිය. මට කෙටි පණිවිඩ පමණක් කියවිය හැකි අතර කරුණාකර ඉංග්‍රීසි භාෂාව පමණක් ටයිප් කරන්න. මන්ද මට එම භාෂාව පමණක් තේරුම් ගත හැකි අතර, ඔබට වහාම උදව් කිරීමට මම සතුටු වෙමි!")
     message.reply_text(b)
-@app.on_message(~filters.text & filters.private & ~filters.bot & ~filters.user(users=1407800946))
+@app.on_message(~filters.text & filters.private & ~filters.bot & ~filters.user(users=mid))
 def stk(client, message):
   message.reply_chat_action("typing")
   message.reply_text("මට කෙටි පණිවිඩ පමණක් කියවිය හැකිය. කරුණාකර මට කෙටි පණිවිඩ පමණක් එවන්න.")
