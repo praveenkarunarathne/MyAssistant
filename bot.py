@@ -11,6 +11,8 @@ app_id=int(os.environ.get("APP_ID"))
 api_hash=os.environ.get("API_HASH")
 mid=os.environ.get("USER_ID")
 string_session = os.environ.get("STRING_SESSION")
+name = str(os.environ.get("NAME"))
+
 app = Client(string_session,app_id,api_hash)
 @app.on_message(filters.text & filters.private & ~filters.bot & ~filters.user(users=mid))
 def echo(client, message):
@@ -38,7 +40,7 @@ def echo(client, message):
       g = open("sid.txt", "w")
       g.write(str(session.id))
       g.close()
-      message.reply_text("ආයුබෝවන් ඔබට කොහොම ද? . මම භානුකගේ සහායිකාව වෙමි. මට ඔබට භානුක ලෙස චැට් හරහා උදව් කළ හැකිය. මට කෙටි පණිවිඩ පමණක් කියවිය හැකි අතර කරුණාකර ඉංග්‍රීසි භාෂාව පමණක් ටයිප් කරන්න. මන්ද මට එම භාෂාව පමණක් තේරුම් ගත හැකි අතර, ඔබට වහාම උදව් කිරීමට මම සතුටු වෙමි!")
+      message.reply_text("ආයුබෝවන් ඔබට කොහොම ද? . මම %sගේ සහායිකාව වෙමි. මට ඔබට %s ලෙස චැට් හරහා උදව් කළ හැකිය. මට කෙටි පණිවිඩ පමණක් කියවිය හැකි අතර කරුණාකර ඉංග්‍රීසි භාෂාව පමණක් ටයිප් කරන්න. මන්ද මට එම භාෂාව පමණක් තේරුම් ගත හැකි අතර, ඔබට වහාම උදව් කිරීමට මම සතුටු වෙමි!" %(name,name))
       message.reply_text(b)
   else:
     session = lydia.create_session()
@@ -50,7 +52,7 @@ def echo(client, message):
     y = open("uid.txt","w")
     y.write(str(message.from_user["id"]))
     y.close()
-    message.reply_text("ආයුබෝවන් ඔබට කොහොම ද? . මම භානුකගේ සහායිකාව වෙමි. මට ඔබට භානුක ලෙස චැට් හරහා උදව් කළ හැකිය. මට කෙටි පණිවිඩ පමණක් කියවිය හැකි අතර කරුණාකර ඉංග්‍රීසි භාෂාව පමණක් ටයිප් කරන්න. මන්ද මට එම භාෂාව පමණක් තේරුම් ගත හැකි අතර, ඔබට වහාම උදව් කිරීමට මම සතුටු වෙමි!")
+    message.reply_text("ආයුබෝවන් ඔබට කොහොම ද? . මම %sගේ සහායිකාව වෙමි. මට ඔබට %s ලෙස චැට් හරහා උදව් කළ හැකිය. මට කෙටි පණිවිඩ පමණක් කියවිය හැකි අතර කරුණාකර ඉංග්‍රීසි භාෂාව පමණක් ටයිප් කරන්න. මන්ද මට එම භාෂාව පමණක් තේරුම් ගත හැකි අතර, ඔබට වහාම උදව් කිරීමට මම සතුටු වෙමි!" %(name,name))
     message.reply_text(b)
 @app.on_message(~filters.text & filters.private & ~filters.bot & ~filters.user(users=mid))
 def stk(client, message):
