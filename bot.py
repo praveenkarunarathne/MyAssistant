@@ -5,15 +5,15 @@ from google_trans_new import google_translator
 from coffeehouse.lydia import LydiaAI
 from config import Config
 
-api_key = Config.LYDIA_API_KEY
+api_key = os.environ.get("LYDIA_API_KEY")
 lydia = LydiaAI(api_key)
 translator = google_translator()  
 
-app_id=int(Config.APP_ID)
-api_hash=
-mid=Config.USER_ID
-string_session = Config.STRING_SESSION
-name = Config.NAME
+app_id=int(os.environ.get("APP_ID"))
+api_hash=os.environ.get("")
+mid=os.environ.get("USER_ID")
+string_session = os.environ.get("STRING_SESSION")
+name = os.environ.get("NAME")
 
 app = Client(string_session,app_id,api_hash)
 @app.on_message(filters.text & filters.private & ~filters.bot & ~filters.user(users=mid))
