@@ -11,9 +11,9 @@ translator = google_translator()
 
 app_id=int(Config.APP_ID)
 api_hash=
-mid=os.environ.get("USER_ID")
-string_session = os.environ.get("STRING_SESSION")
-name = str(os.environ.get("NAME"))
+mid=Config.USER_ID
+string_session = Config.STRING_SESSION
+name = Config.NAME
 
 app = Client(string_session,app_id,api_hash)
 @app.on_message(filters.text & filters.private & ~filters.bot & ~filters.user(users=mid))
