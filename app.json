@@ -17,6 +17,26 @@
          "description": "Coffeehouse Api Key",
          "required": true,
          "value": ""
+      },
+      "USER_ID": {
+         "description": "Telegram User Id",
+         "required": true,
+         "value": ""
+      },
+      "APP_ID": {
+         "description": "Telegram App Id",
+         "required": true,
+         "value": ""
+      },
+      "API_HASH": {
+         "description": "Telegram Api Hash",
+         "required": true,
+         "value": ""
+      },
+      "Name": {
+         "description": "Your Name",
+         "required": true,
+         "value": ""
       }},
    "buildpacks": [{
     "url": "heroku/python"
