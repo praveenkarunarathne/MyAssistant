@@ -33,7 +33,7 @@
          "required": true,
          "value": ""
       },
-      "Name": {
+      "NAME": {
          "description": "Your Name",
          "required": true,
          "value": ""
