@@ -64,7 +64,21 @@ def stk(client, message):
   uid=str(d.read())
   c=str(message.from_user["id"])
   if c==uid:
-    message.reply_text("මට කෙටි පණිවිඩ පමණක් කියවිය හැකිය. කරුණාකර මට කෙටි පණිවිඩ පමණක් එවන්න.")
+    x = open("sid.txt", "a")
+    x.close()
+    e = open("sid.txt","r")
+    sid = e.read()
+    b = lydia.get_session(sid)
+    m=str(b.available)
+    if m=="True":
+      message.reply_text("මට කෙටි පණිවිඩ පමණක් කියවිය හැකිය. කරුණාකර මට කෙටි පණිවිඩ පමණක් එවන්න.")
+    else:
+      session = lydia.create_session()
+      g = open("sid.txt", "w")
+      g.write(str(session.id))
+      g.close()
+      message.reply_text("ආයුබෝවන් ඔබට කොහොම ද? . මම %sගේ සහායිකාව වෙමි. මට ඔබට %s ලෙස චැට් හරහා උදව් කළ හැකිය. මට කෙටි පණිවිඩ පමණක් කියවිය හැකි අතර කරුණාකර ඉංග්‍රීසි භාෂාව පමණක් ටයිප් කරන්න. මන්ද මට එම භාෂාව පමණක් තේරුම් ගත හැකි අතර, ඔබට වහාම උදව් කිරීමට මම සතුටු වෙමි!" %(name,name))
+      message.reply_text("මට කෙටි පණිවිඩ පමණක් කියවිය හැකිය. කරුණාකර මට කෙටි පණිවිඩ පමණක් එවන්න.")    
   else:
     y = open("uid.txt","w")
     y.write(str(message.from_user["id"]))
