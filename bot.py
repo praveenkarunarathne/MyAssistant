@@ -31,12 +31,14 @@ def echo(client, message):
     b = lydia.get_session(sid)
     m=str(b.available)
     if m=="True":
-      output = b.think_thought(message.text)
+      t= translator.translate(message.text,lang_tgt='en')
+      output = b.think_thought(t)
       b= translator.translate(output,lang_tgt='si')
       message.reply_text(b)
     else:
       session = lydia.create_session()
-      output = session.think_thought(message.text)
+      t= translator.translate(message.text,lang_tgt='en')
+      output = session.think_thought(t)
       b= translator.translate(output,lang_tgt='si')
       g = open("sid.txt", "w")
       g.write(str(session.id))
@@ -45,7 +47,8 @@ def echo(client, message):
       message.reply_text(b)
   else:
     session = lydia.create_session()
-    output = session.think_thought(message.text)
+    t= translator.translate(message.text,lang_tgt='si')
+    output = session.think_thought(t)
     b= translator.translate(output,lang_tgt='si')
     h = open("sid.txt", "w")
     h.write(str(session.id))
