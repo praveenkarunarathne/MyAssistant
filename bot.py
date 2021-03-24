@@ -10,7 +10,7 @@ translator = google_translator()
 
 app_id=int(os.environ.get("APP_ID"))
 api_hash=os.environ.get("API_HASH")
-mid=os.environ.get("USER_ID")
+mid= int(os.environ.get("USER_ID"))
 string_session = os.environ.get("STRING_SESSION")
 name = os.environ.get("NAME")
 
