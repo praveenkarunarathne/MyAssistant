@@ -58,5 +58,17 @@ def echo(client, message):
 @app.on_message(~filters.text & filters.private & ~filters.bot & ~filters.user(users=mid))
 def stk(client, message):
   message.reply_chat_action("typing")
-  message.reply_text("මට කෙටි පණිවිඩ පමණක් කියවිය හැකිය. කරුණාකර මට කෙටි පණිවිඩ පමණක් එවන්න.")
+  r = open("uid.txt", "a")
+  r.close()
+  d=open("uid.txt","r")
+  uid=str(d.read())
+  c=str(message.from_user["id"])
+  if c==uid:
+    message.reply_text("මට කෙටි පණිවිඩ පමණක් කියවිය හැකිය. කරුණාකර මට කෙටි පණිවිඩ පමණක් එවන්න.")
+  else:
+    y = open("uid.txt","w")
+    y.write(str(message.from_user["id"]))
+    y.close()
+    message.reply_text("ආයුබෝවන් ඔබට කොහොම ද? . මම %sගේ සහායිකාව වෙමි. මට ඔබට %s ලෙස චැට් හරහා උදව් කළ හැකිය. මට කෙටි පණිවිඩ පමණක් කියවිය හැකි අතර කරුණාකර ඉංග්‍රීසි භාෂාව පමණක් ටයිප් කරන්න. මන්ද මට එම භාෂාව පමණක් තේරුම් ගත හැකි අතර, ඔබට වහාම උදව් කිරීමට මම සතුටු වෙමි!" %(name,name))
+    message.reply_text("මට කෙටි පණිවිඩ පමණක් කියවිය හැකිය. කරුණාකර මට කෙටි පණිවිඩ පමණක් එවන්න.")    
 app.run()
