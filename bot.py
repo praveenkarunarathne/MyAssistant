@@ -53,11 +53,11 @@ def echo(client, message):
       if c=="True":
         b=random.choice(stid)
         message.reply_cached_media(b,quote=True)     
-        else:
-          t= translator.translate(message.text,lang_tgt='en')
-          output = session.think_thought(t)
-          b= translator.translate(output,lang_tgt='si')
-          message.reply_text(b)
+      else:
+        t= translator.translate(message.text,lang_tgt='en')
+        output = session.think_thought(t)
+        b= translator.translate(output,lang_tgt='si')
+        message.reply_text(b)
   else:
     session = lydia.create_session()
     h = open("sid.txt", "w")
