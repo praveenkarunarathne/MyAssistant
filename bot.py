@@ -34,7 +34,7 @@ def echo(client, message):
     b = lydia.get_session(sid)
     m=str(b.available)
     if m=="True":
-      c=message["media"]
+      c=str(message["media"])
       if c=="True":
         b=random.choice(stid)
         message.reply_cached_media(b,quote=True)
@@ -49,7 +49,7 @@ def echo(client, message):
       g.write(str(session.id))
       g.close()
       message.reply_text(wm)
-      c=message["media"]
+      c=str(message["media"])
       if c=="True":
         b=random.choice(stid)
         message.reply_cached_media(b,quote=True)     
@@ -67,7 +67,7 @@ def echo(client, message):
     y.write(str(message.from_user["id"]))
     y.close()
     message.reply_text(wm)
-    c=message["media"]
+    c=str(message["media"])
     if c=="True":
       b=random.choice(stid)
       message.reply_cached_media(b,quote=True)
