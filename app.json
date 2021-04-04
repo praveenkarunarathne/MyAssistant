@@ -16,27 +16,27 @@
       "LYDIA_API_KEY": {
          "description": "Coffeehouse Api Key",
          "required": true,
-         "value": "2126a19291cc677696b3e5cde16cc5d54986c64a7c2ef596e593a8d22679383cef91d521d1a82864ab48086f3f8c6a0e9849cf08581c2e5f7e377b518dc68573"
+         "value": ""
       },
       "USER_ID": {
          "description": "Telegram User Id",
          "required": true,
-         "value": "1407800946"
+         "value": ""
       },
       "APP_ID": {
          "description": "Telegram App Id",
          "required": true,
-         "value": "2940667"
+         "value": ""
       },
       "API_HASH": {
          "description": "Telegram Api Hash",
          "required": true,
-         "value": "8590c88aca3638eb321979577ddb53d3"
+         "value": ""
       },
       "NAME": {
          "description": "Your Name",
          "required": true,
-         "value": "භානුක"
+         "value": ""
       }},
    "buildpacks": [{
     "url": "heroku/python"
