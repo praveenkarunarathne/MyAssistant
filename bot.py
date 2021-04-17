@@ -103,11 +103,11 @@ def echo(client, message):
       if detect_result[0]=="en":
         t= translator.translate(wm,lang_tgt='en')
         message.reply_text(t)
-        output = b.think_thought(message.text)
+        output = session.think_thought(message.text)
         c=message.reply_text(output,quote=True)
       else:
         t= translator.translate(message.text,lang_tgt='en')
-        output = b.think_thought(t)
+        output = session.think_thought(t)
         b= translator.translate(output,lang_tgt='si')
         c=message.reply_text(b,quote=True)
       y = open("moi.txt","w")
