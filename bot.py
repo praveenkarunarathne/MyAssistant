@@ -1,5 +1,6 @@
 from pyrogram import Client,filters
 import os
+import time
 import random
 os.system("pip install coffeehouse")
 from google_trans_new import google_translator  
