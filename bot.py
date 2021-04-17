@@ -60,9 +60,9 @@ def echo(client, message):
       g = open("sid.txt", "w")
       g.write(str(session.id))
       g.close()
-      message.reply_text(wm)
       c=str(message["media"])
       if c=="True":
+        message.reply_text(wm)
         b=random.choice(stid)
         message.reply_cached_media(b,quote=True)     
       else:
@@ -70,11 +70,14 @@ def echo(client, message):
         detect_result = detector.detect(message.text)
 
         if detect_result[0]=="en":
-          output = b.think_thought(message.text)
+          t= translator.translate(wm,lang_tgt='en')
+          message.reply_text(t)
+          output = session.think_thought(message.text)
           c=message.reply_text(output,quote=True)
         else:
+          message.reply_text(wm)
           t= translator.translate(message.text,lang_tgt='en')
-          output = b.think_thought(t)
+          output = session.think_thought(t)
           b= translator.translate(output,lang_tgt='si')
           c=message.reply_text(b,quote=True)
         y = open("moi.txt","w")
@@ -88,9 +91,9 @@ def echo(client, message):
     y = open("uid.txt","w")
     y.write(str(message.from_user["id"]))
     y.close()
-    message.reply_text(wm)
     c=str(message["media"])
     if c=="True":
+      message.reply_text(wm)
       b=random.choice(stid)
       message.reply_cached_media(b,quote=True)
     else:
@@ -98,6 +101,8 @@ def echo(client, message):
       detect_result = detector.detect(message.text)
 
       if detect_result[0]=="en":
+        t= translator.translate(wm,lang_tgt='en')
+        message.reply_text(t)
         output = b.think_thought(message.text)
         c=message.reply_text(output,quote=True)
       else:
