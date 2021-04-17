@@ -39,10 +39,17 @@ def echo(client, message):
         b=random.choice(stid)
         message.reply_cached_media(b,quote=True)
       else:
-        t= translator.translate(message.text,lang_tgt='en')
-        output = b.think_thought(t)
-        b= translator.translate(output,lang_tgt='si')
-        c=message.reply_text(b,quote=True)
+        detector = google_translator()  
+        detect_result = detector.detect(message.text)
+
+        if detect_result[0]=="en":
+          output = b.think_thought(message.text)
+          c=message.reply_text(output,quote=True)
+        else:
+          t= translator.translate(message.text,lang_tgt='en')
+          output = b.think_thought(t)
+          b= translator.translate(output,lang_tgt='si')
+          c=message.reply_text(b,quote=True)
         y = open("moi.txt","w")
         y.write(c.message_id)
         y.close()
@@ -58,10 +65,17 @@ def echo(client, message):
         b=random.choice(stid)
         message.reply_cached_media(b,quote=True)     
       else:
-        t= translator.translate(message.text,lang_tgt='en')
-        output = session.think_thought(t)
-        b= translator.translate(output,lang_tgt='si')
-        c=message.reply_text(b,quote=True)
+        detector = google_translator()  
+        detect_result = detector.detect(message.text)
+
+        if detect_result[0]=="en":
+          output = b.think_thought(message.text)
+          c=message.reply_text(output,quote=True)
+        else:
+          t= translator.translate(message.text,lang_tgt='en')
+          output = b.think_thought(t)
+          b= translator.translate(output,lang_tgt='si')
+          c=message.reply_text(b,quote=True)
         y = open("moi.txt","w")
         y.write(c.message_id)
         y.close()
@@ -79,10 +93,17 @@ def echo(client, message):
       b=random.choice(stid)
       message.reply_cached_media(b,quote=True)
     else:
-      t= translator.translate(message.text,lang_tgt='en')
-      output = session.think_thought(t)
-      b= translator.translate(output,lang_tgt='si')
-      c=message.reply_text(b,quote=True)
+      detector = google_translator()  
+      detect_result = detector.detect(message.text)
+
+      if detect_result[0]=="en":
+        output = b.think_thought(message.text)
+        c=message.reply_text(output,quote=True)
+      else:
+        t= translator.translate(message.text,lang_tgt='en')
+        output = b.think_thought(t)
+        b= translator.translate(output,lang_tgt='si')
+        c=message.reply_text(b,quote=True)
       y = open("moi.txt","w")
       y.write(c.message_id)
       y.close()
