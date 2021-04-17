@@ -42,7 +42,11 @@ def echo(client, message):
         t= translator.translate(message.text,lang_tgt='en')
         output = b.think_thought(t)
         b= translator.translate(output,lang_tgt='si')
-        message.reply_text(b,quote=True)
+        c=message.reply_text(b,quote=True)
+        y = open("moi.txt","w")
+        y.write(c.message_id)
+        y.close()
+        
     else:
       session = lydia.create_session()
       g = open("sid.txt", "w")
@@ -57,7 +61,10 @@ def echo(client, message):
         t= translator.translate(message.text,lang_tgt='en')
         output = session.think_thought(t)
         b= translator.translate(output,lang_tgt='si')
-        message.reply_text(b,quote=True)
+        c=message.reply_text(b,quote=True)
+        y = open("moi.txt","w")
+        y.write(c.message_id)
+        y.close()
   else:
     session = lydia.create_session()
     h = open("sid.txt", "w")
@@ -75,7 +82,21 @@ def echo(client, message):
       t= translator.translate(message.text,lang_tgt='en')
       output = session.think_thought(t)
       b= translator.translate(output,lang_tgt='si')
-      message.reply_text(b,quote=True)
+      c=message.reply_text(b,quote=True)
+      y = open("moi.txt","w")
+      y.write(c.message_id)
+      y.close()
+  for message in app.search_messages(int(message.chat.id),limit=1, from_user=int(mid)):
+    mi=int(message.message_id)
+  e = open("moi.txt","r")
+  moi=int(e.read)
+  time.sleep(10)
+  if moi!=mi:
+    c="True"
+    while c=="True":
+      b=app.get_users(1407800946)
+      c=b.status
+      time.sleep(5)
 
 app.run()
     
