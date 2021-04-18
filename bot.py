@@ -38,7 +38,7 @@ def echo(client, message):
       c=str(message["media"])
       if c=="True":
         b=random.choice(stid)
-        message.reply_cached_media(b,quote=True)
+        c=message.reply_cached_media(b,quote=True)
       else:
         detector = google_translator()  
         detect_result = detector.detect(message.text)
@@ -51,9 +51,9 @@ def echo(client, message):
           output = b.think_thought(t)
           b= translator.translate(output,lang_tgt='si')
           c=message.reply_text(b,quote=True)
-        y = open("moi.txt","w")
-        y.write(c.message_id)
-        y.close()
+      y = open("moi.txt","w")
+      y.write(str(c.message_id))
+      y.close()
         
     else:
       session = lydia.create_session()
@@ -64,7 +64,7 @@ def echo(client, message):
       if c=="True":
         message.reply_text(wm)
         b=random.choice(stid)
-        message.reply_cached_media(b,quote=True)     
+        c=message.reply_cached_media(b,quote=True)           
       else:
         detector = google_translator()  
         detect_result = detector.detect(message.text)
@@ -80,9 +80,9 @@ def echo(client, message):
           output = session.think_thought(t)
           b= translator.translate(output,lang_tgt='si')
           c=message.reply_text(b,quote=True)
-        y = open("moi.txt","w")
-        y.write(c.message_id)
-        y.close()
+      y = open("moi.txt","w")
+      y.write(c.message_id)
+      y.close()
   else:
     session = lydia.create_session()
     h = open("sid.txt", "w")
@@ -95,7 +95,7 @@ def echo(client, message):
     if c=="True":
       message.reply_text(wm)
       b=random.choice(stid)
-      message.reply_cached_media(b,quote=True)
+      c=message.reply_cached_media(b,quote=True)
     else:
       detector = google_translator()  
       detect_result = detector.detect(message.text)
@@ -110,9 +110,9 @@ def echo(client, message):
         output = session.think_thought(t)
         b= translator.translate(output,lang_tgt='si')
         c=message.reply_text(b,quote=True)
-      y = open("moi.txt","w")
-      y.write(c.message_id)
-      y.close()
+    y = open("moi.txt","w")
+    y.write(c.message_id)
+    y.close()
   for message in app.search_messages(int(message.chat.id),limit=1, from_user=int(mid)):
     mi=int(message.message_id)
   e = open("moi.txt","r")
