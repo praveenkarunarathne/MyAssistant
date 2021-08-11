@@ -2,6 +2,7 @@ from pyrogram import Client,filters
 import os
 import time
 import random
+import re
 os.system("pip install coffeehouse")
 from google_trans_new import google_translator  
 from coffeehouse.lydia import LydiaAI
@@ -22,108 +23,30 @@ app = Client(string_session,app_id,api_hash)
 @app.on_message(filters.private & ~filters.bot & ~filters.user(users=mid))
 def echo(client, message):
   message.reply_chat_action("typing")
-  r = open("uid.txt", "a")
-  r.close()
-  d=open("uid.txt","r")
-  uid=str(d.read())
-  c=str(message.from_user["id"])
-  if c==uid:
-    x = open("sid.txt", "a")
-    x.close()
-    e = open("sid.txt","r")
-    sid = e.read()
-    b = lydia.get_session(sid)
-    m=str(b.available)
-    if m=="True":
-      c=str(message["media"])
-      if c=="True":
-        b=random.choice(stid)
-        c=message.reply_cached_media(b,quote=True)
-      else:
-        detector = google_translator()  
-        detect_result = detector.detect(message.text)
+  c=str(message["media"])
+  if c=="True":
+    b=random.choice(stid)
+    c=message.reply_cached_media(b,quote=True)
+  else:
+    text = message.text
 
-        if detect_result[0]=="en":
-          output = b.think_thought(message.text)
-          c=message.reply_text(output,quote=True)
-        else:
-          t= translator.translate(message.text,lang_tgt='en')
+    def deEmojify(text):
+      regrex_pattern = re.compile(pattern = "["
+        u"\U0001F600-\U0001F64F"  # emoticons
+        u"\U0001F300-\U0001F5FF"  # symbols & pictographs
+        u"\U0001F680-\U0001F6FF"  # transport & map symbols
+        u"\U0001F1E0-\U0001F1FF"  # flags (iOS)
+                           "]+", flags = re.UNICODE)
+    return regrex_pattern.sub(r'',text)
+
+ntext = deEmojify(text)
+    t= translator.translate(ntext,lang_tgt='en')
           output = b.think_thought(t)
           b= translator.translate(output,lang_tgt='si')
           c=message.reply_text(b,quote=True)
-      y = open("moi.txt","w")
-      y.write(str(c.message_id))
-      y.close()
-        
-    else:
-      session = lydia.create_session()
-      g = open("sid.txt", "w")
-      g.write(str(session.id))
-      g.close()
-      c=str(message["media"])
-      if c=="True":
-        message.reply_text(wm)
-        b=random.choice(stid)
-        c=message.reply_cached_media(b,quote=True)           
-      else:
-        detector = google_translator()  
-        detect_result = detector.detect(message.text)
 
-        if detect_result[0]=="en":
-          t= translator.translate(wm,lang_tgt='en')
-          message.reply_text(t)
-          output = session.think_thought(message.text)
-          c=message.reply_text(output,quote=True)
-        else:
-          message.reply_text(wm)
-          t= translator.translate(message.text,lang_tgt='en')
-          output = session.think_thought(t)
-          b= translator.translate(output,lang_tgt='si')
-          c=message.reply_text(b,quote=True)
-      y = open("moi.txt","w")
-      y.write(c.message_id)
-      y.close()
-  else:
-    session = lydia.create_session()
-    h = open("sid.txt", "w")
-    h.write(str(session.id))
-    h.close()
-    y = open("uid.txt","w")
-    y.write(str(message.from_user["id"]))
-    y.close()
-    c=str(message["media"])
-    if c=="True":
-      message.reply_text(wm)
-      b=random.choice(stid)
-      c=message.reply_cached_media(b,quote=True)
-    else:
-      detector = google_translator()  
-      detect_result = detector.detect(message.text)
 
-      if detect_result[0]=="en":
-        t= translator.translate(wm,lang_tgt='en')
-        message.reply_text(t)
-        output = session.think_thought(message.text)
-        c=message.reply_text(output,quote=True)
-      else:
-        t= translator.translate(message.text,lang_tgt='en')
-        output = session.think_thought(t)
-        b= translator.translate(output,lang_tgt='si')
-        c=message.reply_text(b,quote=True)
-    y = open("moi.txt","w")
-    y.write(c.message_id)
-    y.close()
-  for message in app.search_messages(int(message.chat.id),limit=1, from_user=int(mid)):
-    mi=int(message.message_id)
-  e = open("moi.txt","r")
-  moi=int(e.read)
-  time.sleep(10)
-  if moi!=mi:
-    c="True"
-    while c=="True":
-      b=app.get_users(1407800946)
-      c=b.status
-      time.sleep(5)
+
 
 app.run()
     
