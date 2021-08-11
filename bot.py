@@ -3,6 +3,7 @@ import os
 import time
 import random
 import re
+import requests
 os.system("pip install coffeehouse")
 from google_trans_new import google_translator  
 from coffeehouse.lydia import LydiaAI
@@ -41,6 +42,12 @@ def echo(client, message):
 
     ntext = deEmojify(text)
     t= translator.translate(ntext,lang_tgt='en')
+    url = "https://acobot-brainshop-ai-v1.p.rapidapi.com/get"
+    querystring = {"bid":"178","key":"sX5A2PcYZbsN5EY6","uid":"mashape","msg":t}
+
+    headers = {'x-rapidapi-key': "1b658cfec5mshad10a4f71536534p1117e4jsn1a431058d5f6",'x-rapidapi-host': "acobot-brainshop-ai-v1.p.rapidapi.com"}
+    response = requests.request("GET", url, headers=headers, params=querystring)
+    rp=response.text
     output = 
     b= translator.translate(output,lang_tgt='si')
     c=message.reply_text(b,quote=True)
