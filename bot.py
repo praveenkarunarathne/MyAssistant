@@ -4,9 +4,7 @@ import time
 import random
 import re
 import requests
-from google_trans_new import google_translator  
-
-translator = google_translator()  
+from google_translate_py import Translator
 
 app_id=int(os.environ.get("APP_ID"))
 api_hash=os.environ.get("API_HASH")
@@ -37,14 +35,13 @@ def echo(client, message):
       return regrex_pattern.sub(r'',text)
 
     ntext = deEmojify(text)
-    t= translator.translate(ntext,lang_tgt='en')
+    t= Translator().translate(ntext, "", "en")
     url = "https://acobot-brainshop-ai-v1.p.rapidapi.com/get"
     querystring = {"bid":"178","key":"sX5A2PcYZbsN5EY6","uid":"mashape","msg":t}
     headers = {'x-rapidapi-key': "1b658cfec5mshad10a4f71536534p1117e4jsn1a431058d5f6",'x-rapidapi-host': "acobot-brainshop-ai-v1.p.rapidapi.com"}
     response = requests.request("GET", url, headers=headers, params=querystring)
     rp=response.text[8:-2]
-    b= translator.translate(rp,lang_tgt='si')
+    b= Translator().translate(rp, "", "si")
     c=message.reply_text(b,quote=True)
 
 app.run()
-    
