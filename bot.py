@@ -37,16 +37,13 @@ def echo(client, message):
         u"\U0001F680-\U0001F6FF"  # transport & map symbols
         u"\U0001F1E0-\U0001F1FF"  # flags (iOS)
                            "]+", flags = re.UNICODE)
-    return regrex_pattern.sub(r'',text)
+      return regrex_pattern.sub(r'',text)
 
-ntext = deEmojify(text)
+    ntext = deEmojify(text)
     t= translator.translate(ntext,lang_tgt='en')
-          output = b.think_thought(t)
-          b= translator.translate(output,lang_tgt='si')
-          c=message.reply_text(b,quote=True)
-
-
-
+    output = 
+    b= translator.translate(output,lang_tgt='si')
+    c=message.reply_text(b,quote=True)
 
 app.run()
     
