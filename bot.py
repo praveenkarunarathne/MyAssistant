@@ -47,9 +47,8 @@ def echo(client, message):
 
     headers = {'x-rapidapi-key': "1b658cfec5mshad10a4f71536534p1117e4jsn1a431058d5f6",'x-rapidapi-host': "acobot-brainshop-ai-v1.p.rapidapi.com"}
     response = requests.request("GET", url, headers=headers, params=querystring)
-    rp=response.text
-    output = 
-    b= translator.translate(output,lang_tgt='si')
+    rp=response.text[8:-2]
+    b= translator.translate(rp,lang_tgt='si')
     c=message.reply_text(b,quote=True)
 
 app.run()
