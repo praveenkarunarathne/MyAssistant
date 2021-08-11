@@ -4,12 +4,8 @@ import time
 import random
 import re
 import requests
-os.system("pip install coffeehouse")
 from google_trans_new import google_translator  
-from coffeehouse.lydia import LydiaAI
 
-api_key = os.environ.get("LYDIA_API_KEY")
-lydia = LydiaAI(api_key)
 translator = google_translator()  
 
 app_id=int(os.environ.get("APP_ID"))
@@ -44,7 +40,6 @@ def echo(client, message):
     t= translator.translate(ntext,lang_tgt='en')
     url = "https://acobot-brainshop-ai-v1.p.rapidapi.com/get"
     querystring = {"bid":"178","key":"sX5A2PcYZbsN5EY6","uid":"mashape","msg":t}
-
     headers = {'x-rapidapi-key': "1b658cfec5mshad10a4f71536534p1117e4jsn1a431058d5f6",'x-rapidapi-host': "acobot-brainshop-ai-v1.p.rapidapi.com"}
     response = requests.request("GET", url, headers=headers, params=querystring)
     rp=response.text[8:-2]
