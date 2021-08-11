@@ -13,11 +13,6 @@
          "required": true,
          "value": ""
       },
-      "LYDIA_API_KEY": {
-         "description": "Coffeehouse Api Key",
-         "required": true,
-         "value": ""
-      },
       "USER_ID": {
          "description": "Telegram User Id",
          "required": true,
