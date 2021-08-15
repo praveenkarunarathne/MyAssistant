@@ -17,4 +17,4 @@ WORKDIR /MyAssistant
 COPY bot.py /bot.py
 
 #Running Radio Player Bot
-CMD ["python", "bot.py"]
+CMD ["/bin/bash", "/start.sh"]
