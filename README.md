@@ -14,7 +14,7 @@ Run
 
 Deploy Railway
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https%3A%2F%2Fgithub.com%2Fpraveen28624%2FMy-Assistant&envs=STRING_SESSION%2CUSER_ID%2CAPP_ID%2CAPI_HASH%2CNAME&STRING_SESSIONDesc=Pyrogram+String+Session&USER_IDDesc=Telegram+User+Id&APP_IDDesc=Telegram+App+Id&API_HASHDesc=Telegram+Api+Hash&NAMEDesc=Your+Name)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https%3A%2F%2Fgithub.com%2Fpraveen28624%2FMyAssistant&envs=STRING_SESSION%2CUSER_ID%2CAPP_ID%2CAPI_HASH%2CNAME&STRING_SESSIONDesc=Pyrogram+String+Session&USER_IDDesc=Telegram+User+Id&APP_IDDesc=Telegram+App+Id&API_HASHDesc=Telegram+Api+Hash&NAMEDesc=Your+Name)
 
 Deploy Heroku
 
