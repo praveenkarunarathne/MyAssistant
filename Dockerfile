@@ -12,8 +12,8 @@ RUN pip3 install -U pip
 COPY requirements.txt /requirements.txt
 RUN cd /
 RUN pip3 install -U -r requirements.txt
-RUN mkdir /My-Assistant
-WORKDIR /My-Assistant
+RUN mkdir /MyAssistant
+WORKDIR /MyAssistant
 COPY bot.py /bot.py
 
 #Running Radio Player Bot
