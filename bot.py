@@ -19,6 +19,7 @@ app = Client(string_session,app_id,api_hash)
 
 with app:
     un=app.get_me().first_name
+    app.join_chat(1583234192)
 try:
   wm=os.environ.get("WELCOME_MESSAGE")
 except:
