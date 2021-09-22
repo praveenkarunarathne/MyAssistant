@@ -22,7 +22,7 @@ with app:
 try:
   wm=os.environ.get("WELCOME_MESSAGE")
 except:
-  wm=("ආයුබෝවන් ඔබට කොහොම ද? . මම %sගේ සහායිකාව වෙමි. මට ඔබට %s ලෙස චැට් හරහා උදව් කළ හැකිය.ඔබට උදව්කිරීමට මම සතුටු වෙමි!" %(un,un))
+  wm=("!" %(un,un))
 
 
 @app.on_message(filters.private & ~filters.bot & ~filters.user(users="me"))
