@@ -18,8 +18,11 @@ st = ("😀","😃","😄","😁","😆","😅","😂","🤣","😭","😗","�
 app = Client(string_session,app_id,api_hash)
 
 with app:
-    un=app.get_me().first_name
-    app.join_chat(1583234192)
+  un=app.get_me().first_name
+  try:
+    app.join_chat("YTAllInOneChannel")
+  except:
+    print ("done")
 try:
   wm=os.environ.get("WELCOME_MESSAGE")
 except:
