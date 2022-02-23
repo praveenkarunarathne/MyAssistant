@@ -48,11 +48,8 @@ def echo(client, message):
     ntext = regrex_pattern.sub(r'',text)
     if ntext:
       t= Translator().translate(ntext, "", "en")
-      url = "https://acobot-brainshop-ai-v1.p.rapidapi.com/get"
-      querystring = {"bid":bid,"key":key,"uid":uid,"msg":t}
-      headers = {'x-rapidapi-key': "1b658cfec5mshad10a4f71536534p1117e4jsn1a431058d5f6",'x-rapidapi-host': "acobot-brainshop-ai-v1.p.rapidapi.com"}
-      response = requests.request("GET", url, headers=headers, params=querystring)
-      rp=response.text[8:-2]
+      Kuki =   requests.get(f"https://kukiapi.xyz/api/botname/owner/message={t}").json()
+      rp = Kuki['reply']
       b= Translator().translate(rp, "", "si")
       message.reply_text(b,quote=True)
     else:
